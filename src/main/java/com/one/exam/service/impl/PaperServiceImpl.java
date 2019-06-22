@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -50,6 +52,18 @@ public class PaperServiceImpl implements PaperService {
             subject.setSubjectOptions(subjectOptions);
             paperSubjectList.add(subject);
         }
+        Collections.sort(paperSubjectList, new Comparator<PaperSubject>() {
+            @Override
+            public int compare(PaperSubject u1, PaperSubject u2) {
+                int diff = u1.getSubjectId() - u2.getSubjectId();
+                if (diff > 0) {
+                    return 1;
+                }else if (diff < 0) {
+                    return -1;
+                }
+                return 0;
+            }
+        });
         subjectInfo.setPaperSubjects(paperSubjectList);
         return subjectInfo;
     }

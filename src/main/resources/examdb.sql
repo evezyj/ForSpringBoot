@@ -28,7 +28,7 @@ CREATE TABLE `paperdetail` (
 
 /*Data for the table `paperdetail` */
 
-insert  into `paperdetail`(`id`,`name`,`description`,`count`,`time`,`type`) values (1,'Java 初级试卷','选拔初级java开发人员',2,'1 hour','J'),(2,'Spring 初级试卷','选拔spring开发人员',2,'30 mins','S'),(3,'C 语言高级试卷','选拔C语言开发人员',2,'20 mins','C'),(4,'Spring 中级试卷','选拔Spring开发人员',1,'1 hours','S');
+insert  into `paperdetail`(`id`,`name`,`description`,`count`,`time`,`type`) values (1,'Java 初级试卷','选拔初级java开发人员',3,'1 hour','J'),(2,'Spring 初级试卷','选拔spring开发人员',2,'30 mins','S'),(3,'C 语言高级试卷','选拔C语言开发人员',2,'20 mins','C'),(4,'Spring 中级试卷','选拔Spring开发人员',1,'1 hours','S');
 
 /*Table structure for table `papersubject` */
 
@@ -40,11 +40,11 @@ CREATE TABLE `papersubject` (
   `subject_id` int(10) DEFAULT NULL COMMENT '题目id(第几题)',
   `subject_name` varchar(225) DEFAULT NULL COMMENT '题目',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 /*Data for the table `papersubject` */
 
-insert  into `papersubject`(`id`,`pd_id`,`subject_id`,`subject_name`) values (1,1,1,'java所定义的版本中不包括：_____。'),(2,1,2,'以下哪个是不合法的标识符。'),(3,2,2,'请选出正确答案。'),(4,2,1,'下面关于IOC 的理解，正确的是___。'),(5,3,1,'C语言源程序文件后缀为什么？'),(6,3,2,'C语言中有多少个主函数？'),(7,4,1,'下面关于AOP的理解，正确的是____。(多选题)');
+insert  into `papersubject`(`id`,`pd_id`,`subject_id`,`subject_name`) values (1,1,1,'java所定义的版本中不包括：_____。'),(2,1,2,'以下哪个是不合法的标识符。'),(3,2,2,'请选出正确答案。'),(4,2,1,'下面关于IOC 的理解，正确的是___。'),(5,3,1,'C语言源程序文件后缀为什么？'),(6,3,2,'C语言中有多少个主函数？'),(7,4,1,'下面关于AOP的理解，正确的是____。(多选题)'),(8,1,3,'有关java的解释，下列正确的是_____。');
 
 /*Table structure for table `papertype` */
 
@@ -71,11 +71,11 @@ CREATE TABLE `subjectoption` (
   `ps_id` int(10) NOT NULL COMMENT '试卷题目id',
   `is_true` tinyint(1) DEFAULT NULL COMMENT '是否为正确答案',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 /*Data for the table `subjectoption` */
 
-insert  into `subjectoption`(`id`,`answer_desccription`,`answer_option`,`ps_id`,`is_true`) values (1,'JAVA2 EE','A',1,0),(2,' JAVA2 Card','B',1,0),(3,' JAVA2 HE','C',1,1),(4,'STRING','A',2,0),(5,'void','B',2,1),(6,'x3x;','C',2,0),(7,'spring是一个重量级框架','A',3,1),(9,'spring是一个IOC和AOP容器','B',3,0),(10,'spring是一个入侵式框架','C',3,0),(11,'spring是一个轻量级框架','D',3,1),(12,'控制反转','A',4,1),(13,'对象被动的接受依赖类','B',4,1),(14,'一定要用接口','C',4,0),(15,'.EXE','A',5,0),(16,'.OBJ','B',5,0),(17,'.C','C',5,1),(18,'.ASM','D',5,0),(19,'2','A',6,0),(20,'1','B',6,1),(21,'无穷个','C',6,0),(22,'AOP关注的是面','A',7,1),(23,'纵向开发','B',7,0),(24,'AOP点和面都关注','C',7,0);
+insert  into `subjectoption`(`id`,`answer_desccription`,`answer_option`,`ps_id`,`is_true`) values (1,'JAVA2 EE','A',1,0),(2,' JAVA2 Card','B',1,0),(3,' JAVA2 HE','C',1,1),(4,'STRING','A',2,0),(5,'void','B',2,1),(6,'x3x;','C',2,0),(7,'spring是一个重量级框架和spring是一个IOC和AOP容器和spring是一个IOC和AOP容器','A',3,1),(9,'spring是一个IOC和AOP容器','B',3,0),(10,'spring是一个入侵式框架','C',3,0),(11,'spring是一个轻量级框架','D',3,1),(12,'控制反转','A',4,1),(13,'对象被动的接受依赖类','B',4,1),(14,'一定要用接口','C',4,0),(15,'.EXE','A',5,0),(16,'.OBJ','B',5,0),(17,'.C','C',5,1),(18,'.ASM','D',5,0),(19,'2','A',6,0),(20,'1','B',6,1),(21,'无穷个','C',6,0),(22,'AOP关注的是面','A',7,1),(23,'纵向开发','B',7,0),(24,'AOP点和面都关注','C',7,0),(25,'我不是正确答案。','A',8,0),(26,'我也不是正确答案。','B',8,1),(27,'B是正确答案。','C',8,1);
 
 /*Table structure for table `userinfo` */
 
@@ -91,11 +91,11 @@ CREATE TABLE `userinfo` (
   `true_subject` varchar(255) DEFAULT NULL,
   `pd_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=utf8;
 
 /*Data for the table `userinfo` */
 
-insert  into `userinfo`(`id`,`name`,`email`,`age`,`count_correct`,`false_subject`,`true_subject`,`pd_id`) values (1,NULL,NULL,NULL,0,NULL,NULL,0),(2,NULL,NULL,0,0,NULL,NULL,0),(3,'2','2',2,0,NULL,NULL,0),(4,'10','10',10,0,NULL,NULL,0),(5,'1','2',1,0,NULL,NULL,0),(6,'1','1',1,0,NULL,NULL,0),(7,'12','12',12,0,NULL,NULL,0),(8,'1','1',1,0,NULL,NULL,0),(9,'1','1',1,0,NULL,NULL,0),(10,'1','1',1,0,NULL,NULL,0),(11,'1','1',1,0,NULL,NULL,0),(12,'1','1',1,0,NULL,NULL,0),(13,'1','1',1,0,NULL,NULL,0),(14,'1','1',1,0,NULL,NULL,0),(15,'1','1',1,0,NULL,NULL,0),(16,'1','1',1,0,NULL,NULL,0),(17,'1','1',1,0,NULL,NULL,0),(18,'1','1',1,0,NULL,NULL,0),(19,'w','w',1,0,NULL,NULL,0),(20,'1','1',1,0,NULL,NULL,0),(21,'1','1',1,0,NULL,NULL,0),(22,'1','1',1,0,NULL,NULL,0),(23,'1','1',1,0,NULL,NULL,0),(24,'1','1',11,0,NULL,NULL,0),(25,'1','1',11,1,'[1]','[2]',0),(26,'1','1',1,0,'[3, 4]','[]',0),(27,'1','1',1,2,'[]','[1, 2]',0),(28,'1','1',1,1,'[3]','[4]',0),(29,'12','1',1,1,'[3]','[4]',0),(30,'1','1',1,1,'[3]','[4]',0),(31,'1','11',1,1,'[3]','[4]',0),(32,'1','1',1,2,'[]','[5, 6]',0),(33,'123','11',11,1,'[3]','[4]',0),(34,'zhao','1',1,2,'[]','[1, 2]',0),(35,'11','11',11,1,'[3]','[4]',0),(36,'11','11',11,1,'[]','[7]',0),(37,'11','11',11,1,'[3]','[4]',0),(38,'111','111',111,2,'[]','[3, 4]',0),(39,'1','1',1,1,'[3]','[4]',0),(40,'123','123',123,2,'[]','[5, 6]',3),(41,'1','2',3,2,'[]','[5, 6]',3),(42,'1','1',1,0,'[3, 4]','[]',2),(43,'1','1',1,1,'[6]','[5]',3),(44,'232','23',2,2,'[]','[5, 6]',3),(45,'11','1',1,1,'[6]','[5]',3);
+insert  into `userinfo`(`id`,`name`,`email`,`age`,`count_correct`,`false_subject`,`true_subject`,`pd_id`) values (1,NULL,NULL,NULL,0,NULL,NULL,0),(51,'1','1',1,1,'[1]','[2]',1),(52,'1','1',1,1,'[1]','[2]',1),(53,'1','1',1,0,NULL,NULL,0),(54,'1','1',1,0,NULL,NULL,0),(55,'1','1',1,1,'[5]','[6]',3),(56,'1','1',1,0,NULL,NULL,0),(57,'1','1',1,0,NULL,NULL,0),(58,'1','1',1,0,NULL,NULL,0),(59,'1','1',1,0,NULL,NULL,0),(60,'1','1',1,0,NULL,NULL,0),(61,'1','1',1,0,'[1, 2]','[]',1),(62,'1','1',1,0,NULL,NULL,0),(63,'1','1',1,2,'[]','[3, 4]',2),(64,'1','1',1,0,NULL,NULL,0),(65,'1','1',1,0,NULL,NULL,0),(66,'1','1',1,0,NULL,NULL,0),(67,'1','1',1,0,NULL,NULL,0),(68,'1','1',1,0,NULL,NULL,0),(69,'1','1',1,0,NULL,NULL,0),(70,'1','1',1,0,NULL,NULL,0),(71,'1','1',1,0,NULL,NULL,0),(72,'1','1',1,0,NULL,NULL,0),(73,'1','1',1,0,NULL,NULL,0),(74,'1','1',1,0,NULL,NULL,0),(75,'1','1',1,0,NULL,NULL,0),(76,'1','1',1,0,NULL,NULL,0),(77,'1','1',1,0,NULL,NULL,0),(78,'1','1',1,0,NULL,NULL,0),(79,'1','1',1,0,NULL,NULL,0),(80,'1','1',1,0,NULL,NULL,0),(81,'1','1',1,0,NULL,NULL,0),(82,'1','1',1,0,NULL,NULL,0),(83,'1','1',1,0,NULL,NULL,0),(84,'1',' 1',1,0,NULL,NULL,0),(85,'1',' 1',1,0,NULL,NULL,0),(86,'1','1',1,0,NULL,NULL,0),(87,'1','1',1,2,'[]','[3, 4]',2),(88,'1','1',1,1,'[]','[7]',4),(89,'1','1',1,2,'[]','[5, 6]',3),(90,'1','1',1,1,'[3]','[4]',2),(91,'1','1',1,1,'[1]','[2]',1),(92,'1','z@qwe.com',12,0,'[1, 2]','[]',1),(93,'1','123@qq.com',13,2,'[]','[3, 4]',2),(94,'1','123@qq.com',13,0,NULL,NULL,0),(95,'1','1@1.com',1,0,NULL,NULL,0),(96,'1','1@q.com',12,1,'[3]','[4]',2),(97,'1','1@q.com',12,0,NULL,NULL,0),(98,'1','1@q.com',12,0,NULL,NULL,0),(99,'1','1@q.com',12,0,NULL,NULL,0),(100,'1','1@q.com',12,0,NULL,NULL,0),(101,'1','1@q.com',1,1,'[1]','[2]',1),(102,'1','1@qq.com',1,0,NULL,NULL,0),(103,'1','1@qq.com',1,0,NULL,NULL,0),(104,'1','q@q.com',1,0,'[1, 2]','[]',1),(105,'1','1@q.com',1,0,NULL,NULL,0),(106,'1','1@q.com',1,2,'[]','[1, 2]',1),(107,'1','1@qq.com',1,2,'[]','[5, 6]',3),(108,'1','1@qq.com',2,0,NULL,NULL,0),(109,'1','1@qq.com',1,0,NULL,NULL,0),(110,'1','1@qq.com',1,0,NULL,NULL,0),(111,'1','1@qq.com',1,2,'[]','[3, 4]',2),(112,'1','1@qq.com',1,0,NULL,NULL,0),(113,'1','1@qq.com',1,0,NULL,NULL,0),(114,'1','1@qq.com',1,0,'[1, 2]','[]',1),(115,'1','1@qq.com',1,0,NULL,NULL,0),(116,'1','123@qq.com',1,0,NULL,NULL,0),(117,'1','qw@q.com',1,1,'[1]','[2]',1),(118,'1','qw@q.com',1,0,NULL,NULL,0),(119,'1','123@qq.com',1,0,NULL,NULL,0),(120,'1','1@1.com',1,0,NULL,NULL,0),(121,'1','1@qq.com',123,3,'[]','[1, 2, 8]',1),(122,'1','1@qq.com',123,0,NULL,NULL,0),(123,'1','1@qq.com',1,0,NULL,NULL,0),(124,'1','1@qq.com',123,1,'[1, 8]','[2]',1),(125,'1','1@qq.com',1,0,NULL,NULL,0),(126,'1','1@q.com',2,0,NULL,NULL,0),(127,'1','1@qq.com',1,0,'[1, 2, 8]','[]',1),(128,'1','1@qq.com',1,1,'[3]','[4]',2),(129,'1','1@qq.com',1,2,'[1]','[2, 8]',1),(130,'1','1@q.com',1,0,NULL,NULL,0),(131,'1','1@qq.com',1,2,'[1]','[2, 8]',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

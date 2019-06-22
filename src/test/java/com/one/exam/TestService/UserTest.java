@@ -19,7 +19,5 @@ public class UserTest {
         userInfo.setTrueSubject("4,5,6");
 
         userInfo.setName("Cicy1");
-        int result = userInfoService.addUserInfo(userInfo);
-        System.out.println(result);
     }
 }
